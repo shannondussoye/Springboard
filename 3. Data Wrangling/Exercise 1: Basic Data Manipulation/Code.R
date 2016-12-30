@@ -3,7 +3,7 @@ suppressWarnings(library(tidyr))
 setwd("~/R/Projects/Springboard/3. Data Wrangling/Exercise 1: Basic Data Manipulation")
 
 # 0: Load the data in RStudio
-data <- read.csv("refine_original.csv.csv", sep = ",",stringsAsFactors = F) %>% tbl_df()
+data <- read.csv("refine_original.csv", sep = ",",stringsAsFactors = F) %>% tbl_df()
 #rename col
 colnames(data)[2] <- "product_c_n"
 
@@ -11,6 +11,10 @@ colnames(data)[2] <- "product_c_n"
 # Clean up the 'company' column, so all of the misspellings of the brand names are standardized. For example, 
 #you can transform the values in the column to be: philips, akzo, van houten and unilever (all lowercase).
 data$company <- tolower(data$company)
+data$company %>% unique()
+data$company <- gsub("phillips|phllips|phillps|fillips|phlips","philips",data$company)
+data$company <- gsub("akz0|ak zo","akzo",data$company)
+data$company <- gsub("unilver","unilever",data$company)
 
 # 2: Separate product code and number
 # Separate the product code and product number into separate columns 
@@ -45,7 +49,16 @@ data$full_address <- paste(data$address,data$city,data$country,sep = ",")
 # Create dummy binary variables for each of them with the prefix company_ and product_ i.e.
 #     Add four binary (1 or 0) columns for company: company_philips, company_akzo, company_van_houten and company_unilever
 #     Add four binary (1 or 0) columns for product category: product_smartphone, product_tv, product_laptop and product_tablet
- 
+
+for (level in gsub(" ","_",unique(data$company))) {
+  data[paste("company", level, sep = "_")] <- ifelse(data$company == level, 1, 0)
+}
+
+for (level in unique(data$product_category)) {
+  data[paste("product", level, sep = "_")] <- ifelse(data$product_category == level, 1, 0)
+}
+
 # 6: Submit the project on Github
-# 
-# Include your code, the original data as a CSV file refine_original.csv, and the cleaned up data as a CSV file called refine_clean.csv.
+# Include your code, the original data as a CSV file refine_original.csv, 
+#and the cleaned up data as a CSV file called refine_clean.csv.
+write.csv(data,"refine_clean.csv",sep = ",")
