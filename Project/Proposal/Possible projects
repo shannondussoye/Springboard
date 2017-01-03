@@ -1,0 +1,22 @@
+1. Predict if a crowd-funding project will be funded.
+data: 
+- https://webrobots.io/kickstarter-datasets/
+- https://webrobots.io/indiegogo-dataset/
+
+2. Credit Scoring Model.
+data: https://onlinecourses.science.psu.edu/stat857/node/215
+
+3. Predicting Number of Taxi required??
+data:
+http://digital.cityofchicago.org/index.php/chicago-taxi-data-released/
+https://data.cityofchicago.org/Transportation/Taxi-Trips-Dashboard/spcw-brbq
+http://toddwschneider.com/posts/analyzing-1-1-billion-nyc-taxi-and-uber-trips-with-a-vengeance/
+
+3. AirBnB Analysis growth and predictions? Cost analysis?
+data: 
+http://insideairbnb.com/get-the-data.html
+
+4. Trakt.tv movie recommendation
+https://pypi.python.org/pypi/trakt.py
+
+5. Credit risk modelling?
