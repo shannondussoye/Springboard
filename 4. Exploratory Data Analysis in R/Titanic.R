@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # titanic is avaliable in your workspace
 
 # Check out the structure of titanic
@@ -19,4 +20,6 @@ posn.j <- position_jitter(0.5, 0)
 ggplot(titanic,aes(x=factor(Pclass),y=Age,col=factor(Sex))) +
   geom_jitter(size=3,alpha=0.5,position=posn.j) +
   facet_grid(".~Survived")
+=======
+>>>>>>> dcf970b1d2836d33a6263d9c7f7222c6c6997e48
 
