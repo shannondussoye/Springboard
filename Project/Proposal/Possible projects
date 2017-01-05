@@ -12,7 +12,7 @@ http://digital.cityofchicago.org/index.php/chicago-taxi-data-released/
 https://data.cityofchicago.org/Transportation/Taxi-Trips-Dashboard/spcw-brbq
 http://toddwschneider.com/posts/analyzing-1-1-billion-nyc-taxi-and-uber-trips-with-a-vengeance/
 
-3. AirBnB Analysis growth and predictions? Cost analysis?
+3. AirBnB Analysis growth and predictions? Cost analysis? / Predict if an appt will be rented ?
 data: 
 http://insideairbnb.com/get-the-data.html
 
@@ -20,3 +20,6 @@ http://insideairbnb.com/get-the-data.html
 https://pypi.python.org/pypi/trakt.py
 
 5. Credit risk modelling?
+data: https://www.kaggle.com/c/GiveMeSomeCredit
+
+6. vehicule color recognition from vehicule pictures 
