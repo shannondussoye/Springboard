@@ -1,3 +1,4 @@
 1. Quick Intro
 2. Capstone Project (Preferably related to credit?)
 3. Suggestion for Capstone Project?
+4. Linear Regression - Removing variables decreases the R^2, isn't the goal to have a high r^2?
