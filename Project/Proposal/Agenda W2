@@ -1,0 +1,19 @@
+1. Project:
+   - credit risk modelling dateset: german credit dataset http://freakonometrics.free.fr/german_credit.csv
+     - I think too many people have worked on the dataset and will not really be an original project? Thoughts?
+   - Datasets I created:
+     - ~250k records of car sales data scraped from carsales.com.au
+       - To create this dataset, one of the challenges was to scrape all individual listings to get the car color.
+         - Possible solution is to write a vehicle color recognition algorithm that identified the color.
+     - rent listings from domain.com.au
+     - personal movies data from trakt (~120 records)
+   - AirBnB prediction for rent? - with price change? 
+     - Can we link airbnb and realestate data to find good investment deals? i.e. rent a place from real estate and list it on airbnb?
+
+2. Possible projects from sources:
+   - https://github.com/fivethirtyeight/data
+   - https://cloud.google.com/bigquery/public-data/
+   - https://www.drivendata.org/competitions/
+   - https://github.com/caesar0301/awesome-public-datasets
+      
+3. Course progress - still going through the stats materials.
