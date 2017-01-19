@@ -20,7 +20,9 @@
 
 ##   You might also start by listing the files in your working directory
 
-getwd() # where am I?
+#getwd() # where am I?
+
+setwd("~/R/Projects/Springboard/7. In Depth Analysis/")
 list.files("dataSets") # files in the dataSets folder
 
 ## Load the states data
@@ -139,9 +141,26 @@ coef(summary(sat.voting.mod))
 
 ## Interactions and factors
 ## ══════════════════════════
+library(dplyr)
+library(ggplot2)
+data <- states.data %>% select(metro,energy)
+summary(data)
+ggplot(data,aes(metro,energy)) + geom_jitter()
+cor(data,use = "pairwise")
 
 ## Modeling interactions
 ## ─────────────────────────
+
+model_energy <- lm(energy~metro,data = states.data)
+summary(model_energy)
+plot(model_energy)
+
+data.add <- states.data %>% select(metro,energy,green,house)
+summary(data.add)
+plot(data.add)
+cor(data.add, use = "pairwise")
+model_energy_add <- lm(energy ~ metro + green + house , data = states.data)
+summary(model_energy_add)
 
 ##   Interactions allow us assess the extent to which the association
 ##   between one predictor and the outcome depends on a second predictor.
@@ -200,7 +219,13 @@ coef(summary(lm(csat ~ C(region, contr.helmert),
 
 ##   1. Add on to the regression equation that you created in exercise 1 by
 ##      generating an interaction term and testing the interaction.
+model_energy2 <- lm(energy ~ metro * waste, data = states.data)
 
 ##   2. Try adding region to the model. Are there significant differences
 ##      across the four regions?
+model_energy3 <- lm(energy ~ metro * waste,region, data = states.data)
+summary(model_energy2)
+summary(model_energy3)
+anova(model_energy3)
 
+##? not sure to have completely understood all sections
