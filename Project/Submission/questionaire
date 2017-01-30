@@ -1,0 +1,19 @@
+1. What is the problem you want to solve?
+Airbnb is one of the most popular service that is being used worldwide and has gained a lot of momentum in the last few years.
+Looking at providing insights to people who want to get into renting their space through airbnb. 
+
+2. Who is your client and why do they care about this problem? In other words, what will your client DO or DECIDE 
+based on your analysis that they wouldn’t have otherwise?
+Clients will be the space owners. They’ll get an early insights on how they are performing as
+compared to other people in the area. They’ll decide weather there is something they
+need to change/improve or stop listing their space (waste of money).
+
+3. What data are you going to use for this? How will you acquire this data?
+Airbnb listings, Feedback and geolocation data. Data is available on insideairbnb.com
+
+4. In brief, outline your approach to solving this problem (knowing that this might change later).
+we’ll proceed with data wrangling first and create a scoring model using nlp (analysing feedback), 
+to score each space and predict their likeliness to be rented.
+
+5. What are your deliverables? Typically, this would include code, along with a paper and/or a slide deck.
+Code, Slides (Possibly a dashboard)
