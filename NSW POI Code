@@ -1,0 +1,57 @@
+library(RCurl)
+library(jsonlite)
+library(dplyr)
+library(tidyr)
+library(RODBCext)
+library(maptools)
+library(maps)
+library(rgdal)
+library(rgeos)
+library(ggplot2)
+
+
+######### Script to scrape NSW POI’s ##########
+
+
+for (i in 1:137391) {
+  
+  if (i == 1) {
+    
+    NSW_POI_DF <- data.frame(OBJECTID = character(),
+                             topoid = character(),
+                             poigroup = character(),
+                             poitype = character(),
+                             poiname = character(),
+                             poilabel = character(),
+                             poilabeltype = character(),
+                             poialtlabel = character(),
+                             x = numeric(),
+                             y = numeric())
+    
+  }
+
+  NSW_POI_Query <- paste0("http://maps.six.nsw.gov.au/arcgis/rest/services/public/NSW_POI/MapServer/find?searchText=", i, "&contains=true&searchFields=objectid&sr=&layers=Points_Of_Interest+%280%29&layerDefs=&returnGeometry=true&maxAllowableOffset=&geometryPrecision=&dynamicLayers=&returnZ=false&returnM=false&gdbVersion=&f=pjson")
+  Single_nswPOI <- fromJSON(getURL(NSW_POI_Query))
+  NSW_POI_DF <- rbind(NSW_POI_DF, cbind(Single_nswPOI$results$attributes, Single_nswPOI$results$geometry[,c(1,2)]))
+  
+  if ((i %% 1000) == 0) {
+    
+    print(i)
+    
+  } 
+
+}
+
+
+### Script to create radius 
+
+NSW_POI_SP <- NSW_POI_DF  
+coordinates(NSW_POI_SP) <- ~ x + y # Tells R that this is a spatial dataframe, with lat/long points
+
+houseSample <- SpatialPoints(<Long Point>, <Lat Point>, proj4string = CRS("+proj=longlat +datum=WGS84"))
+houseSample <- spTransform(houseSample, CRS("+proj=utm +south +zone=52 +datum=WGS84")) ## Transforms to UTM format so metres can be used in next function
+
+housexkm <- gBuffer(houseSample, width = <metres radius>) ## Creates polygon
+housexkm <- spTransform(housexkm, CRS("+proj=longlat +datum=WGS84")) #Transforms back to Standard Lat/Long
+
+over(NSW_POI_SP, housexkm) #Assess whether points fall within polygon
