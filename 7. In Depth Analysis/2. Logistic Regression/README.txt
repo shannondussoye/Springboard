@@ -1,8 +1,5 @@
-This project is adapted from Harvard University's statistical software workshop.
+After looking at Linear Regression, it's now time to get a into Logistic regression. 
 
-http://tutorials.iq.harvard.edu/R/Rstatistics/Rstatistics.html
+Logistic regression is a non-linear modelling technique as compared to Linear regression. As compared to Linear regression logistic regression is able to predict categorical variables. 
 
-These statistical software workshop materials by Harvard University are licensed 
-under a Creative Commons Attribution-ShareAlike 4.0 International License.
-
-
+The code file contains a simple example to predict hypertensin using 4 independent attributes and the exerice requires to use the glm function to create a linear regression model and predict the probability of working using each marital status.
