@@ -122,3 +122,5 @@ mod_everwrk <- glm(everwrk ~ ., data = data,
 summary(mod_everwrk)
 
 Effect("r_maritl", mod_everwrk) %>% as.data.frame()
+
+
