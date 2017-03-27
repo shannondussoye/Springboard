@@ -1,6 +1,3 @@
-Hey Stephen, with the Airbnb data, which other algorithms do you think i can try to predict the price (continuous)?  
-Stephen Oates 4:50 PM
-There is heaps in rough order of complexity:
 -linear Regression
 -Partial Least Squares
 -Penalised Regression (ridge regression, lasso, elastic net)
