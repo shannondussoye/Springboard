@@ -1,9 +1,12 @@
 suppressWarnings(library(dplyr))
 suppressWarnings(library(tidyr))
+library(xlsx)
 setwd("~/R/Projects/Springboard/3. Data Wrangling/Exercise 1: Basic Data Manipulation")
 
+read.xlsx(file = "refine.xlsx",sheetIndex = 1) %>% write.csv("refine_original.csv")
+
 # 0: Load the data in RStudio
-data <- read.csv("refine_original.csv", sep = ",",stringsAsFactors = F) %>% tbl_df()
+data <- read.csv("refine_original.csv", sep = ",",stringsAsFactors = F) %>% tbl_df() %>% select(-X)
 #rename col
 colnames(data)[2] <- "product_c_n"
 
