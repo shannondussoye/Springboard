@@ -1,0 +1,13 @@
+-linear Regression
+-Partial Least Squares
+-Penalised Regression (ridge regression, lasso, elastic net)
+-Generalised Additive Models (mgcv package)/Generalised Additive Models for Location Scale and Shape (gamlss package)
+-Multivariate Adaptive Regression Splines
+-SVMs
+-K-Nearest Neighbour
+-Trees (Bagged, Boosted, Random Forest, GBM etc)
+I would start with GAM I reckon and then go more complex. GAMs are neat as they are almost as simple as a linear regression but they are non-linear. Just remember that for the linear regression you have to spend a bit of time checking assumptions before fitting.
+Shannon Dussoye 4:52 PM
+hmm, ok. would random forest perform well with continuous?
+Stephen Oates 4:55 PM
+yes, Random Forest (and xgboost) tend to work really well out of the box as tree's require almost no data preparation. There was a paper a few years ago where they ran algorithims across a whole bunch of datasets and RF was the most successful. However you don't really gain much understanding of the data and the interactions that are going on. Also Random Forest can take a while to run (though it is parrallelisable). For these reasons it is better to start more simply I think as you want to spend a while playing around and creating new variables and getting a feel for the data. It is up to you though, it depends on if you want to emphasise accuracy or understanding.
